@@ -259,16 +259,19 @@ footer p {
 }
 
 .details-container {
+  height: 600px;
   display: grid;
   grid-column: 1fr 2fr;
-  grid-template-rows: 100px 80px auto 50px 50px 200px;
+  grid-template-rows: 100px;
   grid-template-areas:
     "title ."
     "img price"
     "img descip"
     "img sidebtn"
     "img colorbtn"
-    "img .";
+    "img quantity"
+    "img size"
+    "img addbtn";
   justify-content: left;
   grid-gap: 10px 5%;
   padding: 10px 10%;
@@ -276,60 +279,95 @@ footer p {
 
 .details-container h1 {
   grid-area: title;
-  color: #c51230;
+  color: black;
   font-size: 40px;
 }
 
 .details-container img {
   grid-area: img;
+  height: max-content;
+  box-sizing: border-box;
 }
 
 .details-container h2 {
   grid-area: price;
   color: #c51230;
   font-size: 30px;
+  margin: 0;
 }
 
 .details-container p {
   grid-area: descip;
   color: #c51230;
+  margin: 0;
 }
 
-.details-container .side-button {
-  grid-area: sidebtn;
-}
-
-.details-container .color-button {
-  grid-area: colorbtn;
-}
-
-.side-button {
-  display: flex;
-  align-items: center;
-}
-
-.side-button p {
-  color: gray;
-}
-
-.color-button {
-  display: flex;
-  align-items: center;
-}
-
-.-button p {
-  color: gray;
-}
-
-.details-container button {
+.details-container button,
+.details-container select {
   width: 80px;
   height: 40px;
-  margin: 10px;
+  margin: 0 10px;
   padding: 0 5px;
   background-color: #c51230;
   font-size: 16px;
   border: 1px solid #c51230;
-  border-radius: 15px;
+  border-radius: 5px;
+}
+.side-button {
+  grid-area: sidebtn;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.color-button {
+  grid-area: colorbtn;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+#quantity_dropdowns {
+  grid-area: quantity;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+#size_dropdowns {
+  grid-area: size;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+#size_dropdowns select {
+  width: 150px;
+  border: 2px solid black;
+}
+
+.details-container select {
+  background-color: white;
+}
+
+#add-to-cart-button {
+  align-self: center;
+  grid-area: addbtn;
+  width: 120px;
+  height: 50px;
+  padding: 0 5px;
+  background-color: #c51230;
+  font-size: 16px;
+  border: 1px solid #c51230;
+  border-radius: 5px;
+  color: white;
+  box-sizing: border-box;
+}
+
+#add-to-cart-button:disabled {
+  background-color: gray;
+  border: 1px solid gray;
+  color: rgb(36, 36, 36);
 }
 
 .details-container button:hover {

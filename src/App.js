@@ -1,17 +1,30 @@
-import logo from "./assets/images/logo.png";
-import shoppingCart from "./assets/images/cart.png";
 import "./App.css";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import NoImplement from "./unimplement";
 import Home from "./home";
 import Products from "./products";
 import Details from "./details";
+import logo from "./assets/images/logo.png";
+import shoppingCart from "./assets/images/cart.png";
+import { useState } from "react";
+import React from "react";
+
+export const CartContext = React.createContext();
 
 function App() {
+  const [cart, setcart] = useState([]);
+  const [orderNum, setorderNum] = useState(0);
+
   return (
-    <Router>
-      <div>
-        <div className="top-bar"></div>
+    <CartContext.Provider
+      value={{
+        cart: cart,
+        setcart: setcart,
+        orderNum: orderNum,
+        setOrderNum: setorderNum,
+      }}
+    >
+      <Router>
         <header>
           <div className="top-bar"></div>
           <div className="content">
@@ -23,7 +36,7 @@ function App() {
               <Link to="/not_implemented" className="cart-button">
                 <img src={shoppingCart} alt="shopping cart" />
               </Link>
-              <p>0</p>
+              <p>{orderNum}</p>
             </div>
           </div>
           <nav>
@@ -86,8 +99,8 @@ function App() {
             <p>Design by sola, Copyright © 2023</p>
           </nav>
         </footer>
-      </div>
-    </Router>
+      </Router>
+    </CartContext.Provider>
   );
 }
 
