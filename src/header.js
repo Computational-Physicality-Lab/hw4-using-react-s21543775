@@ -1,9 +1,12 @@
-import React from "react";
-import { HashRouter as Link } from "react-router-dom";
+import { React, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import logo from "./assets/images/logo.png";
 import shoppingCart from "./assets/images/cart.png";
+import { CartContext } from "./App";
 
 function Header() {
+  const { cart, setcart } = useContext(CartContext);
+
   return (
     <header>
       <div className="top-bar"></div>
@@ -13,10 +16,15 @@ function Header() {
         </Link>
         <h1>Scotty Shirts U Illustrate (SSUI)</h1>
         <div className="cart-container">
-          <Link to="/not_implemented" className="cart-button">
+          <Link to="/cart" className="cart-button">
             <img src={shoppingCart} alt="shopping cart" />
           </Link>
-          <p>0</p>
+          <p>
+            {cart.reduce(
+              (accumulator, current) => accumulator + current.quan,
+              0
+            )}
+          </p>
         </div>
       </div>
       <nav>

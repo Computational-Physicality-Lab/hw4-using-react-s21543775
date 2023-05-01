@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import shirts from "./shared/shirts";
 import NotFound from "./assets/shirt_images/default-m-front.png";
 var productimg = (obj) => {
@@ -19,14 +19,13 @@ function Products() {
     <div id="products-container">
       {shirts.map((shirt, i) => (
         <div className="block" key={i}>
-          <img
-            src={productimg(shirt)}
-            alt={shirt.name ? shirt.name : "data lost"}
-            id={`img_${i}`}
-            onClick={() => {
-              // 在這裡定義圖片單擊時的行為
-            }}
-          />
+          <Link to={`/details/${i}`}>
+            <img
+              src={productimg(shirt)}
+              alt={shirt.name ? shirt.name : "data lost"}
+              id={`img_${i}`}
+            />
+          </Link>
           <h2 id={`title_${i}`}>{shirt.name ? shirt.name : "data lost"}</h2>
           <p id={`avaliable_${i}`}>
             {"Avaliable in " +

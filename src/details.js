@@ -22,16 +22,15 @@ const size_option_name = [
 
 function Details() {
   let { bid } = useParams();
-  const { cart, setcart, orderNum, setOrderNum } = useContext(CartContext);
+  const { cart, setcart } = useContext(CartContext);
 
   const shirt = shirts[bid];
   const colorsArray = shirt.colors ? Object.values(shirt.colors) : [];
   const colorsKeyArray = shirt.colors ? Object.keys(shirt.colors) : [];
 
   const [imgSrc, setImgSrc] = useState(Object.values(colorsArray[0])[0]);
-  const [sideIdx, setSideIdx] = useState(0);
   const [colorIdx, setColorIdx] = useState(0);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [sizeIdx, setSizeIdx] = useState(0);
 
   const [btnDisable, setBtnDisable] = useState(true);
@@ -47,7 +46,7 @@ function Details() {
   }
 
   const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
+    setQuantity(parseInt(event.target.value));
   };
 
   for (let i = 0; i < size_option_name.length; i++) {
@@ -59,13 +58,25 @@ function Details() {
   }
 
   const handleSizeChange = (event) => {
-    setSizeIdx(event.target.value);
+    setSizeIdx(parseInt(event.target.value));
     if (event.target.value == 0) {
       setBtnDisable(true);
     } else {
       setBtnDisable(false);
     }
   };
+
+  function ClickBuy(cart, setcart) {
+    let order = {
+      bid: bid,
+      color: colorIdx,
+      quan: quantity,
+      size: sizeIdx,
+    };
+    setcart([...cart, order]);
+
+    console.log([...cart, order]);
+  }
 
   return (
     <div className="details-container">
@@ -80,7 +91,6 @@ function Details() {
         <button
           onClick={() => {
             setImgSrc(Object.values(colorsArray[colorIdx])[0]);
-            setSideIdx(0);
           }}
         >
           front
@@ -88,7 +98,6 @@ function Details() {
         <button
           onClick={() => {
             setImgSrc(Object.values(colorsArray[colorIdx])[1]);
-            setSideIdx(1);
           }}
         >
           back
@@ -124,49 +133,12 @@ function Details() {
       <button
         id="add-to-cart-button"
         disabled={btnDisable}
-        onClick={() =>
-          ClickBuy(
-            cart,
-            setcart,
-            orderNum,
-            setOrderNum,
-            bid,
-            sideIdx,
-            colorIdx,
-            quantity,
-            sizeIdx
-          )
-        }
+        onClick={() => ClickBuy(cart, setcart)}
       >
         Add to Cart
       </button>
     </div>
   );
-}
-
-function ClickBuy(
-  cart,
-  setcart,
-  orderNum,
-  setOrderNum,
-  bid,
-  sideIdx,
-  colorIdx,
-  quantity,
-  sizeIdx
-) {
-  let order = {
-    bid: bid,
-    side: sideIdx,
-    color: colorIdx,
-    quantity: quantity,
-    size: sizeIdx,
-  };
-  let new_cart = cart;
-  new_cart.push(order);
-  setcart(new_cart);
-  setOrderNum(orderNum + parseInt(quantity));
-  console.log(cart);
 }
 
 export default Details;
