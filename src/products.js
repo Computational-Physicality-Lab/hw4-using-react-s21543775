@@ -32,9 +32,6 @@ function Products() {
               (shirt.colors ? Object.values(shirt.colors).length : 0) +
               " colors"}
           </p>
-          <Link to="/not_implemented">
-            <button id={`button1_${i}`}>Quick View</button>
-          </Link>
           <Link to={`/details/${i}`}>
             <button id={`button2_${i}`}>See Page</button>
           </Link>

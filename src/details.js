@@ -3,6 +3,7 @@ import { createRoutesFromElements, useParams } from "react-router-dom";
 import shirts from "./shared/shirts";
 import NotFound from "./assets/shirt_images/default-m-front.png";
 import { CartContext } from "./App";
+import { Link } from "react-router-dom";
 
 const size_option_name = [
   "Size:",
@@ -73,9 +74,7 @@ function Details() {
       quan: quantity,
       size: sizeIdx,
     };
-    setcart([...cart, order]);
-
-    console.log([...cart, order]);
+    setcart([order, ...cart]);
   }
 
   return (
@@ -130,13 +129,15 @@ function Details() {
           {size_options}
         </select>
       </div>
-      <button
-        id="add-to-cart-button"
-        disabled={btnDisable}
-        onClick={() => ClickBuy(cart, setcart)}
-      >
-        Add to Cart
-      </button>
+      <Link to="/cart" id="add-cart-link">
+        <button
+          id="add-to-cart-button"
+          disabled={btnDisable}
+          onClick={() => ClickBuy(cart, setcart)}
+        >
+          Add to Cart
+        </button>
+      </Link>
     </div>
   );
 }

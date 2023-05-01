@@ -350,9 +350,12 @@ footer p {
   background-color: white;
 }
 
-#add-to-cart-button {
+#add-cart-link {
   align-self: center;
   grid-area: addbtn;
+}
+
+#add-to-cart-button {
   width: 120px;
   height: 50px;
   padding: 0 5px;
@@ -384,16 +387,21 @@ footer p {
 
 .left-area {
   height: 100%;
-  background-color: #dddddd;
   padding: 20px;
   box-sizing: border-box;
 }
 
 .right-area {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  background-color: #eeeeee;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.order-container {
+  border-top: 1px solid #c51230;
+  padding: 10px 0;
 }
 
 #order-img-info {
@@ -421,7 +429,7 @@ footer p {
 
 .order-info-item {
   display: flex;
-  padding: 0 10px;
+  padding: 5px 10px;
   margin: 0;
   box-sizing: border-box;
 }
@@ -432,14 +440,52 @@ footer p {
   margin: 0;
 }
 
-#remove-btn {
-  width: 80px;
+.order-p2 {
+  color: #c51230;
+}
+
+.order-btn {
+  width: max-content;
   height: 40px;
-  margin: 0 15px;
+  margin: 5px 15px;
+  padding: 0 10px;
   background-color: #c51230;
   font-size: 16px;
   border: 1px solid #c51230;
   border-radius: 5px;
   color: white;
   box-sizing: border-box;
+}
+
+#empty-msg {
+  font-size: 36px;
+}
+
+#order-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #c51230;
+  border-radius: 5px;
+  padding: 5%;
+  margin-top: 90px;
+  margin-bottom: 10px;
+}
+
+#order-summary p,
+#order-summary > h3 {
+  margin: 5px 0;
+}
+
+.order-summary-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-summary-price {
+  color: #c51230;
+}
+
+.order-link {
+  align-self: center;
 }

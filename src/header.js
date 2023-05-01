@@ -15,17 +15,21 @@ function Header() {
           <img src={logo} alt="logo" />
         </Link>
         <h1>Scotty Shirts U Illustrate (SSUI)</h1>
-        <div className="cart-container">
-          <Link to="/cart" className="cart-button">
+        <Link
+          to="/cart"
+          className="cart-button"
+          style={{ textDecoration: "none" }}
+        >
+          <div className="cart-container">
             <img src={shoppingCart} alt="shopping cart" />
-          </Link>
-          <p>
-            {cart.reduce(
-              (accumulator, current) => accumulator + current.quan,
-              0
-            )}
-          </p>
-        </div>
+            <p>
+              {cart.reduce(
+                (accumulator, current) => accumulator + current.quan,
+                0
+              )}
+            </p>
+          </div>
+        </Link>
       </div>
       <nav>
         <ul className="tab-container">
