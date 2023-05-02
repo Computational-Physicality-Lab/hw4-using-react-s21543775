@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# HW4
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 姓名
+薛佳哲
 
-## Available Scripts
+## 網站連結
+https://stalwart-marigold-b33cfa.netlify.app/
 
-In the project directory, you can run:
+## 加分項目
+無
 
-### `npm start`
+## 任意實作部分之行為
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* 離開產品詳細資訊頁面又回來: 等同開新頁面，沒有保存先前選取的顏色等資訊
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* 關閉網頁又重開: 重置購物車
 
-### `npm test`
+* 開啟複數網頁時: 分開處理，兩邊購物車不互通
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## React與純js/html的不同
+我認為在熟練React之後，React在編寫程式時會快不少。可能在作業1這類比較小型的網站上不明顯，但若是大型網站有許多重複的部件，使用React的方式會更為簡潔，不需要重複複製相同的html程式碼。
 
-### `npm run build`
+容易理解的部分，我認為還是一般的js/html更直觀一點，雖然程式碼較臃腫，但相較React把各個部件存放在不同JS及CSS檔的部分，可能一般的html較為直觀。當然隨著project越來越大型，還是使用React會更加整齊。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+撰寫同一個頁面時，只要想要設計的網站有需要重複使用的部件，React會更為簡短，因為可以將部件包好重複使用。
