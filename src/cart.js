@@ -36,7 +36,11 @@ function Cart() {
   return (
     <div className="cart-body">
       <div className="left-area">
-        <h1>My cart</h1>
+        <h1>
+          My cart (
+          {cart.reduce((accumulator, current) => accumulator + current.quan, 0)}
+          )
+        </h1>
         {cart.map((item, index) => (
           <Order
             key={`order_${index}`}
@@ -144,7 +148,7 @@ function Summary(props) {
         </div>
         <div className="order-summary-item">
           <p>Total:</p>
-          <p className="order-summary-price">
+          <p className="order-summary-price" id="total-price">
             ${(total_price + est).toFixed(2)}
           </p>
         </div>
