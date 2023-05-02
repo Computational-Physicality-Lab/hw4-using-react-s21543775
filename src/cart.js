@@ -57,7 +57,7 @@ function Order(props) {
   let shirt = shirts[bid];
   let colorsArray = shirt.colors ? Object.values(shirt.colors) : [];
   let colorsKeyArray = shirt.colors ? Object.keys(shirt.colors) : [];
-  const [imgSrc, setImgSrc] = useState(Object.values(colorsArray[color])[0]);
+  let imgSrc = Object.values(colorsArray[color])[0];
   const [quantity, setQuantity] = useState(quan);
   const quantity_options = [];
   for (let i = 1; i <= 20; i++) {
